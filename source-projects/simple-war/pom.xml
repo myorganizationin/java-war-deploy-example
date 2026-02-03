@@ -30,16 +30,16 @@
     <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
   </properties>
 
-  <distributionManagement>
-    <repository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/78108051/packages/maven</url>
-    </repository>
-    <snapshotRepository>
-      <id>gitlab-maven</id>
-      <url>https://gitlab.com/api/v4/projects/78108051/packages/maven</url>
-    </snapshotRepository>
-  </distributionManagement>
+   <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://35.86.138.22:8082/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://35.86.138.22:8082/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
   <build>
     <pluginManagement>
