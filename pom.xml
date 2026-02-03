@@ -14,33 +14,26 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Set the Java level you build with; adjust to 17 if needed -->
     <maven.compiler.release>11</maven.compiler.release>
   </properties>
 
-  <!-- Deploy target: your GitLab Maven registry (Project ID 78108051) -->
+  <!-- Where Maven will deploy artifacts -->
   <distributionManagement>
     <repository>
-      <id>nexus</id>
-      <url>http://54.191.114.190:8081/repository/maven-releases</url>
+      <id>nexus-releases</id>
+      <url>http://54.191.114.190:8081/repository/maven-releases/</url>
     </repository>
-    <snapshotRepository>
-      <id>nexus-snapshot</id>
-      <url>http://54.191.114.190:8081/repository/maven-releases</url>
-    </snapshotRepository>
   </distributionManagement>
 
   <build>
     <finalName>java-war-deploy-example</finalName>
     <plugins>
-      <!-- Modern WAR plugin to avoid old Plexus/JDK incompatibilities -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.4.0</version>
       </plugin>
 
-      <!-- Compiler plugin (aligns bytecode level with your JDK) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -50,7 +43,6 @@
         </configuration>
       </plugin>
 
-      <!-- Your original step: copy webapp-runner artifact at package phase -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -59,9 +51,7 @@
           <execution>
             <id>copy-webapp-runner</id>
             <phase>package</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
+            <goals><goal>copy</goal></goals>
             <configuration>
               <artifactItems>
                 <artifactItem>
@@ -76,7 +66,6 @@
         </executions>
       </plugin>
 
-      <!-- (Optional but recommended) Surefire for tests; safe defaults -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -87,17 +76,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <!-- Dependencies: add servlet API if you compile servlets -->
-  <!--
-  <dependencies>
-    <dependency>
-      <groupId>jakarta.servlet</groupId>
-      <artifactId>jakarta.servlet-api</artifactId>
-      <version>5.0.0</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
-  -->
 
 </project>
