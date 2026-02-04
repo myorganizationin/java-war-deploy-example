@@ -1,5 +1,5 @@
 <html>
 <body>
-Hello WellCome to UBI v1. The time is <%= new java.util.Date().toString() %>.
+Hello WellCome to Coforge. The time is <%= new java.util.Date().toString() %>.
 </body>
 </html>
