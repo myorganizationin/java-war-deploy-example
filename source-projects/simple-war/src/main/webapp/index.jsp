@@ -1,5 +1,5 @@
 <html>
 <body>
-Hello This is for Demo. The time is <%= new java.util.Date().toString() %>.
+Hello WellCome to Coforge Team. The time is <%= new java.util.Date().toString() %>.
 </body>
 </html>
