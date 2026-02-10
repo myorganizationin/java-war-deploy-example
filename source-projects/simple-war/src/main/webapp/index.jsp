@@ -1,5 +1,5 @@
 <html>
 <body>
-Hello WellCome to MuleSoft Team. The time is <%= new java.util.Date().toString() %>.
+Hello WellCome to Coforge mulesoft Team. The time is <%= new java.util.Date().toString() %>.
 </body>
 </html>
