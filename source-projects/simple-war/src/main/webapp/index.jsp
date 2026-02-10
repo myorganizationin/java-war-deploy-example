@@ -1,5 +1,5 @@
 <html>
 <body>
-Hello WellCome NFS File Sytem. The time is <%= new java.util.Date().toString() %>.
+Hello This is for Demo. The time is <%= new java.util.Date().toString() %>.
 </body>
 </html>
